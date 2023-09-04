@@ -1,0 +1,9 @@
+{
+	"watch": ["./src/"],
+	"ext": ".ts,.js,.css,.ejs",
+	"ignore": [],
+	"exec": "npx ts-node --esm ./src/server.ts",
+	"execMap": {
+		"ts": "node --loader ts-node/esm.mjs --experimental-specifier-resolution=node"
+	}
+}
