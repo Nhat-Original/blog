@@ -22,7 +22,7 @@ const addBlog = asyncHandler(async (req: Request, res: Response) => {
 });
 
 const getBlog = asyncHandler(async (req: Request, res: Response) => {
-	const blog = await Blog.findById(req.params.id);
+	const blog = await Blog.findById(req.params.id).populate('author').exec();
 
 	if (!blog) {
 		res.status(404).json({ errorMessages: ['blog not found'] });

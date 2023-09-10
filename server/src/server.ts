@@ -21,13 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: ((): string => {
-			if (process.env.NODE_ENV === 'production') {
-				return process.env.CLIENT_ORIGIN as string;
-			} else {
-				return process.env.CLIENT_DEV_ORIGIN as string;
-			}
-		})(),
+		origin: process.env.CLIENT_ORIGIN,
+		credentials: true,
 	})
 );
 
